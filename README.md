@@ -10,3 +10,22 @@
 
 Install [Docker](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/) and [Docker-compose](https://docs.docker.com/compose/install/#install-compose).
 
+### How to use
+
+Execute in your terminal, change the *MYMAGENTO* to use the name of your project:
+
+```
+curl -s https://raw.githubusercontent.com/MkShaman/server-magento2-docker/master/run | bash -s MYMAGENTO clone
+```
+
+You can specify the version that want install (e.g. `install-magento2 2.2`).
+
+### Panels
+
+Enjoy your new panels!
+
+**Web server:** http://localhost/
+
+**PHPMyAdmin:** http://localhost:8080
+
+**Local emails:** http://localhost:8025

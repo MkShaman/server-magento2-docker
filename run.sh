@@ -11,23 +11,10 @@ git config --global diff.renamelimit 5000
 sudo chmod -R u+x ./*
 
 docker image pull shaman666/server-magento2
-
 mkdir src
 chmod -R 777 src
-rm -rf src/*
-docker-compose up -d
 
-echo "
-===================== 🚀 Done 🚀 ===================
-
-      Created by Shaman
-      Access your new links:
-
-      🌎 Web server: http://localhost/
-      ⚙️ PHPMyAdmin: http://localhost:8080
-      ✉️ Local emails: http://localhost:8025
-
-===================== 🚀 Done 🚀 ==================="
+bash start
 
 if [ -z "$1" ]
   then
