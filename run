@@ -8,7 +8,7 @@ git config --global core.eol LF
 git config --global core.fileMode false
 git config --global diff.renamelimit 5000
 
-chmod -R u+x ./*
+sudo chmod -R u+x ./*
 
 docker image pull shaman666/server-magento2
 mkdir src
