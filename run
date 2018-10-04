@@ -24,6 +24,9 @@ echo "
       Access your new links:
 
       🌎 Web server: http://localhost/
+      🌎 Admin: http://localhost/admin
+      👤 User: admin
+      🔑 Password: admin123
       ⚙️ PHPMyAdmin: http://localhost:8080
       ✉️ Local emails: http://localhost:8025
 
