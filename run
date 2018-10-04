@@ -27,9 +27,5 @@ echo "
 
 ===================== 🚀 Done 🚀 ==================="
 
-if [ -z "$1" ]
-  then
-    docker-compose exec --user www-data apache bash install-magento2
-else
-    docker-compose exec --user $@ apache bash
-fi;
+
+docker-compose exec --user www-data apache bash install-magento2
