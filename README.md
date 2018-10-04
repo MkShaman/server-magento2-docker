@@ -18,8 +18,6 @@ Execute in your terminal, change the *MYMAGENTO* to use the name of your project
 curl -s https://raw.githubusercontent.com/MkShaman/server-magento2-docker/master/run | bash -s MYMAGENTO clone
 ```
 
-You can specify the version that want install (e.g. `install-magento2 2.2`).
-
 ### Panels
 
 Enjoy your new panels!
