@@ -27,4 +27,4 @@ echo "
 
 ===================== 🚀 Done 🚀 ==================="
 
-bash install-m2
+echo docker-compose exec --user www-data apache bash install-magento2
