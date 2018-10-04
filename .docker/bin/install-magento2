@@ -33,6 +33,9 @@ cp -rv /var/www/env.sample.php ./app/etc/env.php;
 #n98 cron:install;
 php -f ./bin/magento indexer:set-mode schedule;
 cp ~/.composer/auth.json ~/html/var/composer_home/auth.json;
+if [ ! -e ./pub/media/styles.css ]; then
+  cp ~/data-m2/styles.css ./pub/media/styles.css;
+fi
 php -f ./bin/magento sampledata:deploy \
 && php -f ./bin/magento setup:upgrade \
 && php -f ./bin/magento setup:di:compile \
