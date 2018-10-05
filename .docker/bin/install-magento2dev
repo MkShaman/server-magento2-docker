@@ -1,9 +1,15 @@
 #!/usr/bin/env bash
-if [ $@ ]; then
-  composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition:$1 . ;
-else
-  composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition . ;
-fi
+git clone https://github.com/magento/magento2.git .
+git clone https://github.com/magento/magento2-sample-data.git 
+
+php -f /var/www/html/magento2-sample-data/dev/tools/build-sample-data.php -- --ce-source="/var/www/html"
+
+chown -R :www-data ./magento2-sample-data \
+&& find ./magento2-sample-data -type d -exec chmod g+ws {} \;
+
+composer update;
+composer install;
+
 chmod u+w -R ./var ./vendor ./pub/static ./pub/media ./app/etc \
 && chmod u+x ./bin/magento \
 && php -f ./bin/magento setup:install --base-url=http://localhost/ \
@@ -24,13 +30,19 @@ chmod u+w -R ./var ./vendor ./pub/static ./pub/media ./app/etc \
     --use-sample-data \
 && mv ./app/etc/env.php ./app/etc/env.original.php;
 cp -rv /var/www/env.sample.php ./app/etc/env.php;
-n98 cron:install;
+#n98 cron:install;
 php -f ./bin/magento indexer:set-mode schedule;
-cp ~/.composer/auth.json var/composer_home/auth.json \
-&& php -f ./bin/magento sampledata:deploy \
+cp ~/.composer/auth.json ~/html/var/composer_home/auth.json;
+if [ ! -e ./pub/media/styles.css ]; then
+  touch ./pub/media/styles.css;
+  curl -s https://raw.githubusercontent.com/MkShaman/server-magento2-docker/master/styles.css > ./pub/media/styles.css;
+fi
+php -f ./bin/magento sampledata:deploy \
 && php -f ./bin/magento setup:upgrade \
+&& php -f ./bin/magento setup:di:compile \
 && php -f ./bin/magento indexer:reindex \
-&& php -f ./bin/magento cache:flush;
+&& php -f ./bin/magento cache:flush \
+&& php -f ./bin/magento setup:static-content:deploy;
 mv package.json.sample package.json ; mv Gruntfile.js.sample Gruntfile.js;
 npm i;
 php -f ./bin/magento deploy:mode:set production \

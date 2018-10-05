@@ -15,7 +15,7 @@ mkdir src
 chmod -R 777 src
 
 docker-compose up -d
-docker-compose exec -T --user www-data apache bash install-magento2dev
+docker-compose exec -T --user www-data apache bash install-magento2
 
 echo "
 ===================== 🚀 Done 🚀 ===================
@@ -31,3 +31,4 @@ echo "
       ✉️ Local emails: http://localhost:8025
 
 ===================== 🚀 Done 🚀 ==================="
+

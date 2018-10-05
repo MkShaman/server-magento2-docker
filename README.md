@@ -12,10 +12,15 @@ Install [Docker](https://docs.docker.com/engine/installation/linux/docker-ce/ubu
 
 ### How to use
 
-Execute in your terminal, change the *MYMAGENTO* to use the name of your project:
+Execute in your terminal, change the *MYMAGENTO* to use the name of your project, you install Magento 2.3-develop from github:
 
 ```
 curl -s https://raw.githubusercontent.com/MkShaman/server-magento2-docker/master/run | bash -s MYMAGENTO clone
+```
+If you want to install the Magento 2 latest version with composer, use like that:
+
+```
+curl -s https://raw.githubusercontent.com/MkShaman/server-magento2-docker/master/run-composer | bash -s MYMAGENTO clone
 ```
 
 ### Panels
