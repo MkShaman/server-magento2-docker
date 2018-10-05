@@ -22,6 +22,17 @@ If you want to install the Magento 2 latest version with composer, use like that
 ```
 curl -s https://raw.githubusercontent.com/MkShaman/server-magento2-docker/master/run-composer | bash -s MYMAGENTO clone
 ```
+Than
+
+```
+cd MYMAGENTO2
+./shell
+rm index.php
+install-magento2
+```
+
+You can specify the version that want install (e.g. `install-magento2 2.2`).
+
 
 ### Panels
 

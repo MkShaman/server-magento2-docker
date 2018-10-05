@@ -15,20 +15,11 @@ mkdir src
 chmod -R 777 src
 
 docker-compose up -d
-docker-compose exec -T --user www-data apache bash install-magento2
 
-echo "
-===================== 🚀 Done 🚀 ===================
-
-      Created by Shaman
-      Access your new links:
-
-      🌎 Web server: http://localhost/
-      🌎 Admin: http://localhost/admin
-      👤 User: admin
-      🔑 Password: admin123
-      ⚙️ PHPMyAdmin: http://localhost:8080
-      ✉️ Local emails: http://localhost:8025
-
-===================== 🚀 Done 🚀 ==================="
+if [ -z "$1" ]
+  then
+    docker-compose exec --user www-data apache bash
+else
+    docker-compose exec --user $@ apache bash
+fi;
 

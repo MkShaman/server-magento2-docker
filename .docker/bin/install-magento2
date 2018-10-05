@@ -36,3 +36,17 @@ npm i;
 php -f ./bin/magento deploy:mode:set production \
 && composer dump-autoload -o \
 && clear
+echo "
+===================== 🚀 Done 🚀 ===================
+
+      Created by Shaman
+      Access your new links:
+
+      🌎 Web server: http://localhost/
+      🌎 Admin: http://localhost/admin
+      👤 User: admin
+      🔑 Password: admin123
+      ⚙️ PHPMyAdmin: http://localhost:8080
+      ✉️ Local emails: http://localhost:8025
+
+===================== 🚀 Done 🚀 ==================="
