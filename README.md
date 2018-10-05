@@ -27,7 +27,6 @@ Than
 ```
 cd MYMAGENTO2
 ./shell
-rm index.php
 install-magento2
 ```
 

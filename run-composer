@@ -15,11 +15,3 @@ mkdir src
 chmod -R 777 src
 
 docker-compose up -d
-
-if [ -z "$1" ]
-  then
-    docker-compose exec --user www-data apache bash
-else
-    docker-compose exec --user $@ apache bash
-fi;
-
